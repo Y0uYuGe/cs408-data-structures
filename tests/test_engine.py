@@ -159,7 +159,7 @@ class EngineTests(unittest.TestCase):
         (self.db / "writer.lock").write_text('{"pid": 99999999}', encoding="utf-8")
         with storage.database_lock(self.db):
             self.assertTrue((self.db / "writer.lock").exists())
-        self.assertFalse((self.db / "writer.lock").exists())
+        self.assertTrue((self.db / "writer.lock").exists())  # stable OS-lock file, not a busy flag
 
     def test_select_newest_valid_snapshot_and_ignore_temporary(self):
         self.fixture()

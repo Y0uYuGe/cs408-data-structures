@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import time
+import tempfile
 
 SCHEMA = 1
 
@@ -55,12 +56,24 @@ def validate_payload(payload):
 
 def atomic_write(path, data):
     path = Path(path)
-    temporary = path.with_name(path.name + ".tmp")
-    with temporary.open("wb") as stream:
-        stream.write(data)
-        stream.flush()
-        os.fsync(stream.fileno())
-    os.replace(temporary, path)
+    descriptor, name = tempfile.mkstemp(prefix=path.name+".tmp-", dir=path.parent)
+    temporary = Path(name)
+    try:
+        with os.fdopen(descriptor, "wb") as stream:
+            stream.write(data)
+            stream.flush()
+            os.fsync(stream.fileno())
+        deadline = time.monotonic()+2
+        while True:
+            try:
+                os.replace(temporary, path)
+                break
+            except OSError as exc:
+                if os.name != "nt" or getattr(exc, "winerror", None) not in (5,32,33) or time.monotonic() >= deadline:
+                    raise
+                time.sleep(.02)
+    finally:
+        temporary.unlink(missing_ok=True)
     # POSIX directory fsync makes rename durable. Windows exposes no portable directory fsync.
     if os.name != "nt":
         descriptor = os.open(path.parent, os.O_RDONLY)
@@ -70,57 +83,47 @@ def atomic_write(path, data):
             os.close(descriptor)
 
 
-def process_alive(pid):
-    if type(pid) is not int or pid <= 0:
-        return False
-    if os.name == "nt":
-        import ctypes
-        kernel = ctypes.windll.kernel32
-        kernel.OpenProcess.restype = ctypes.c_void_p
-        handle = kernel.OpenProcess(0x1000, False, pid)
-        if not handle:
-            return kernel.GetLastError() == 5  # access denied: assume alive
-        status = ctypes.c_ulong()
-        try:
-            return bool(kernel.GetExitCodeProcess(ctypes.c_void_p(handle), ctypes.byref(status))) and status.value == 259
-        finally:
-            kernel.CloseHandle(ctypes.c_void_p(handle))
-    try:
-        os.kill(pid, 0)
-        return True
-    except ProcessLookupError:
-        return False
-    except PermissionError:
-        return True
-
-
 @contextmanager
 def database_lock(directory, timeout=5):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     lock = directory / "writer.lock"
+    # The file remains at a stable path/inode. Unlinking a PID sentinel has a
+    # check-then-delete race: a waiter can delete a newly acquired writer's lock.
+    # OS locks are released on process exit, including abnormal termination.
+    fd = os.open(lock, os.O_CREAT | os.O_RDWR, 0o600)
+    acquired = False
     deadline = time.monotonic() + timeout
-    while True:
-        try:
-            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-            with os.fdopen(fd, "w", encoding="utf-8") as stream:
-                json.dump({"pid": os.getpid()}, stream)
-            break
-        except FileExistsError:
-            try:
-                owner = json.loads(lock.read_text(encoding="utf-8"))
-                if not process_alive(owner.get("pid")):
-                    lock.unlink(missing_ok=True)
-                    continue
-            except (ValueError, OSError):
-                pass
-            if time.monotonic() >= deadline:
-                raise RuntimeError("database busy or incomplete lock; inspect writer.lock before manual removal")
-            time.sleep(.05)
     try:
+        while True:
+            try:
+                os.lseek(fd, 0, os.SEEK_SET)
+                if os.name == "nt":
+                    import msvcrt
+                    msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+                else:
+                    import fcntl
+                    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                acquired = True
+                break
+            except OSError:
+                if time.monotonic() >= deadline:
+                    raise RuntimeError("database busy; another process holds the OS file lock")
+                time.sleep(.02)
+        os.ftruncate(fd, 0)
+        os.write(fd, canonical({"pid": os.getpid()}))
+        os.fsync(fd)
         yield
     finally:
-        lock.unlink(missing_ok=True)
+        if acquired:
+            os.lseek(fd, 0, os.SEEK_SET)
+            if os.name == "nt":
+                import msvcrt
+                msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(fd, fcntl.LOCK_UN)
+        os.close(fd)
 
 
 def load(directory):

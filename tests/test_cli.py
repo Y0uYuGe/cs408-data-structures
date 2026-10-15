@@ -81,11 +81,25 @@ class CLITests(unittest.TestCase):
                              "add", "--title", f"doc{i}", "--text", "shared"], cwd=ROOT,
                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8",
                              env={**os.environ, "PYTHONIOENCODING": "utf-8"}))
-        ids = []
+        ids, failures = [], []
         for process in processes:
             out, err = process.communicate(timeout=15)
-            self.assertEqual(process.returncode, 0, err)
-            ids.append(json.loads(out)["id"])
+            if process.returncode:
+                failures.append(err)
+            else:
+                ids.append(json.loads(out)["id"])
+        self.assertEqual(failures, [])
         self.assertEqual(sorted(ids), list(range(1, 7)))
         self.assertEqual(len(self.run_cli("search", "shared")), 6)
         self.assertTrue(self.run_cli("check")["ok"])
+
+    def test_lock_is_released_after_owner_process_crashes(self):
+        holder = subprocess.Popen([sys.executable, "-c", "from atlas_search.storage import database_lock; import sys,time;\nwith database_lock(sys.argv[1]):\n print('ready',flush=True); time.sleep(30)", str(self.db)], cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        try:
+            self.assertEqual(holder.stdout.readline().strip(), "ready")
+            holder.terminate(); holder.communicate(timeout=5)
+            self.assertEqual(self.run_cli("add", "--title", "after-crash", "--text", "preserved")["id"], 1)
+        finally:
+            if holder.poll() is None:
+                holder.terminate()
+            holder.communicate(timeout=5)
