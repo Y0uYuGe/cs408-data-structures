@@ -1,0 +1,626 @@
+[
+  {
+    "id": "Q01",
+    "level": 1,
+    "topic": "DS02",
+    "prompt": "顺序执行语句 a=1; b=a+2 后 b 的值？",
+    "answers": [
+      "3"
+    ],
+    "explanation": "赋值先计算右侧；b=1+2=3。",
+    "review": "docs/02-c-foundations.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q02",
+    "level": 1,
+    "topic": "DS03",
+    "prompt": "C 中 int *p=&x; *p=7; 将改变谁？ A p的地址 B x的值 C 指针类型 D 无变化",
+    "answers": [
+      "B"
+    ],
+    "explanation": "p存放x地址，*p访问对应对象；写入改变x。",
+    "review": "docs/02-c-foundations.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q03",
+    "level": 1,
+    "topic": "DS02",
+    "prompt": "已分配4个int的数组，有效下标最大值是多少？",
+    "answers": [
+      "3"
+    ],
+    "explanation": "零起始下标为0,1,2,3。下标4是一过尾，不可解引用。",
+    "review": "docs/02-c-foundations.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q04",
+    "level": 1,
+    "topic": "DS05",
+    "prompt": "循环 i=1; i<n; i*=2 的执行次数数量级？ A O(n) B O(log n) C O(n²) D O(1)",
+    "answers": [
+      "B"
+    ],
+    "explanation": "第k次后i=2^k，达到n需要约log2(n)次。",
+    "review": "docs/03-complexity.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q05",
+    "level": 1,
+    "topic": "DS05",
+    "prompt": "T(n)=3n²+8n+2的紧确渐进阶？ A Θ(n) B Θ(n log n) C Θ(n²) D Θ(2^n)",
+    "answers": [
+      "C"
+    ],
+    "explanation": "最高阶项n²决定增长，常数因子和低阶项不改变Θ。",
+    "review": "docs/03-complexity.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q06",
+    "level": 1,
+    "topic": "DS06",
+    "prompt": "递归 f(n)=f(n-1)+1、基例f(0)=0，调用栈额外空间数量级？ A O(1) B O(log n) C O(n) D O(n²)",
+    "answers": [
+      "C"
+    ],
+    "explanation": "未返回的n层调用各保存常数局部状态，累计O(n)。",
+    "review": "docs/03-complexity.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q07",
+    "level": 1,
+    "topic": "DS03",
+    "prompt": "C中 malloc 后用于结束动态对象生命周期的函数名？",
+    "answers": [
+      "free"
+    ],
+    "explanation": "每块成功分配的内存最终free一次；释放后不得继续解引用。",
+    "review": "docs/02-c-foundations.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q08",
+    "level": 1,
+    "topic": "DS04",
+    "prompt": "ADT描述重点是？ A 内存地址 B 操作语义及约束 C 编译器版本 D 文件后缀",
+    "answers": [
+      "B"
+    ],
+    "explanation": "ADT定义对象、操作和行为；物理存储是实现选择。",
+    "review": "docs/03-complexity.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q09",
+    "level": 2,
+    "topic": "DS07",
+    "prompt": "长度8顺序表在下标0插入且容量足够，需后移多少原元素？",
+    "answers": [
+      "8"
+    ],
+    "explanation": "从末尾向前移动8个元素，避免覆盖尚未移动的数据。",
+    "review": "docs/04-linear.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q10",
+    "level": 2,
+    "topic": "DS07",
+    "prompt": "从空动态数组开始连续append，容量倍增时单次均摊时间？ A O(1) B O(log n) C O(n) D O(n²)",
+    "answers": [
+      "A"
+    ],
+    "explanation": "搬移总量小于1+2+4+...+n<2n，n次操作总O(n)。",
+    "review": "docs/04-linear.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q11",
+    "level": 2,
+    "topic": "DS08",
+    "prompt": "单链表已知前驱结点p，删除其后继的链接修改是？ A p=p.next B p.next=p.next.next C p.next=NULL总正确 D 仅free(p)",
+    "answers": [
+      "B"
+    ],
+    "explanation": "将前驱的next越过待删结点，再释放目标；还要处理尾指针。",
+    "review": "docs/04-linear.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q12",
+    "level": 2,
+    "topic": "DS14",
+    "prompt": "栈依次push A,B,C，再pop一次，返回？",
+    "answers": [
+      "C"
+    ],
+    "explanation": "后进先出，最后压入C首先弹出。",
+    "review": "docs/05-stack-queue.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q13",
+    "level": 2,
+    "topic": "DS16",
+    "prompt": "容量5循环队列牺牲一格，front=4,rear=2，长度是多少？",
+    "answers": [
+      "3"
+    ],
+    "explanation": "(rear-front+5)%5=(2-4+5)%5=3。",
+    "review": "docs/05-stack-queue.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q14",
+    "level": 2,
+    "topic": "DS17",
+    "prompt": "中缀 a OR b AND c 的后缀串？以逗号分隔",
+    "answers": [
+      "a,b,c,AND,OR"
+    ],
+    "explanation": "AND优先级高于OR，先求b AND c再与a OR。",
+    "review": "docs/05-stack-queue.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q15",
+    "level": 2,
+    "topic": "DS15",
+    "prompt": "层序遍历和无权最短路径共同依赖？ A 栈 B 队列 C AVL D 散列函数",
+    "answers": [
+      "B"
+    ],
+    "explanation": "队列维持先发现先扩展，使距离按层非递减。",
+    "review": "docs/05-stack-queue.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q16",
+    "level": 2,
+    "topic": "DS60",
+    "prompt": "倒排表[1,3,8]与[2,3,8,9]交集？逗号分隔",
+    "answers": [
+      "3,8"
+    ],
+    "explanation": "双指针同步推进，相等时输出并同时前进。",
+    "review": "docs/04-linear.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q17",
+    "level": 3,
+    "topic": "DS20",
+    "prompt": "KMP模式ababaca的前缀表最后一个值是多少？",
+    "answers": [
+      "1"
+    ],
+    "explanation": "完整模式的最长相等真前后缀是a，长度1。",
+    "review": "docs/06-strings.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q18",
+    "level": 3,
+    "topic": "DS20",
+    "prompt": "在文本ababababaca中查找ababaca，零起始首位置？",
+    "answers": [
+      "4"
+    ],
+    "explanation": "text[4:11]=ababaca；前面的部分匹配通过前缀表回退。",
+    "review": "docs/06-strings.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q19",
+    "level": 3,
+    "topic": "DS65",
+    "prompt": "Atlas对中文“数据”同时生成单字和相邻双字，共多少token？",
+    "answers": [
+      "3"
+    ],
+    "explanation": "数、据、数据，共3项；这是确定性切分，不是词典分词。",
+    "review": "docs/06-strings.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q20",
+    "level": 3,
+    "topic": "DS21",
+    "prompt": "Trie查询前缀本身耗时主要取决于？ A 文档总字符数 B 前缀长度 C 最大docID D 磁盘容量",
+    "answers": [
+      "B"
+    ],
+    "explanation": "每个字符向下一层；枚举结果另需访问结果子树。",
+    "review": "docs/06-strings.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q21",
+    "level": 3,
+    "topic": "DS22",
+    "prompt": "含7个结点的非空二叉树，空孩子指针共有多少？",
+    "answers": [
+      "8"
+    ],
+    "explanation": "孩子指针共14个，实际边6条，所以空指针14-6=8=n+1。",
+    "review": "docs/07-trees.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q22",
+    "level": 3,
+    "topic": "DS28",
+    "prompt": "AVL依次插入30,10,20，需要哪种旋转？ A LL B RR C LR D RL",
+    "answers": [
+      "C"
+    ],
+    "explanation": "30的左子树右侧过高，先对10左旋，再对30右旋。",
+    "review": "docs/07-trees.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q23",
+    "level": 3,
+    "topic": "DS23",
+    "prompt": "先序A,B,D,E,C，中序D,B,E,A,C，后序？逗号分隔",
+    "answers": [
+      "D,E,B,C,A"
+    ],
+    "explanation": "根A，左子树B(D,E)，右子树C；后序先左右最后根。",
+    "review": "docs/07-trees.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q24",
+    "level": 3,
+    "topic": "DS29",
+    "prompt": "权重2,3,7的Huffman树WPL是多少？",
+    "answers": [
+      "17"
+    ],
+    "explanation": "先合并2+3=5，再合并5+7=12；WPL为合并权重和5+12=17。",
+    "review": "docs/07-trees.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q25",
+    "level": 4,
+    "topic": "DS31",
+    "prompt": "有序表[1,3,3,9]中lower_bound(3)返回零起始位置？",
+    "answers": [
+      "1"
+    ],
+    "explanation": "返回第一个不小于3的位置，区间始终使用[lo,hi)。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q26",
+    "level": 4,
+    "topic": "DS33",
+    "prompt": "散列表元素数12、桶数16，装填因子是多少？",
+    "answers": [
+      "0.75"
+    ],
+    "explanation": "α=n/m=12/16=.75，不是占用桶数除以桶数。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q27",
+    "level": 4,
+    "topic": "DS33",
+    "prompt": "拉链法碰撞后必须比较什么才能确认命中？ A 仅hash值 B 完整key C 桶号 D 插入时间",
+    "answers": [
+      "B"
+    ],
+    "explanation": "不同key可以有相同散列值与桶号，必须做完整键相等比较。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q28",
+    "level": 4,
+    "topic": "DS28",
+    "prompt": "AVL范围查询输出k条，典型时间上界？ A O(log n+k) B O(1) C O(k²) D O(n log n)",
+    "answers": [
+      "A"
+    ],
+    "explanation": "搜索边界路径O(log n)，访问并输出范围内k个结点。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q29",
+    "level": 4,
+    "topic": "DS36",
+    "prompt": "B+树用于磁盘范围查找的主要优点？ A 叶子链可顺序扫 B 无需比较 C 每层只一结点 D 不占空间",
+    "answers": [
+      "A"
+    ],
+    "explanation": "高扇出降低树高，叶子按序相连适合范围扫描。此仓库仅理论讲解。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q30",
+    "level": 4,
+    "topic": "DS34",
+    "prompt": "线性探测删除元素直接置为从未使用的空位，主要风险？ A 内存增大 B 截断后续探测链 C 自动排序 D 总会死循环",
+    "answers": [
+      "B"
+    ],
+    "explanation": "查找遇到从未使用的空位可停止；删除应保留墓碑或重插后续簇。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q31",
+    "level": 4,
+    "topic": "DS32",
+    "prompt": "成功查找ASL：四元素查找比较次数为1,2,2,3且等概率，ASL是多少？",
+    "answers": [
+      "2"
+    ],
+    "explanation": "(1+2+2+3)/4=2，概率假设必须明确。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q32",
+    "level": 4,
+    "topic": "DS28",
+    "prompt": "正文长度3和5的文档，range(3,3)应输出多少条？",
+    "answers": [
+      "1"
+    ],
+    "explanation": "区间闭合，只包含正文长度恰好3的文档。",
+    "review": "docs/08-search.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q33",
+    "level": 5,
+    "topic": "DS37",
+    "prompt": "无向图4个顶点度数和为10，边数是多少？",
+    "answers": [
+      "5"
+    ],
+    "explanation": "握手定理度数和=2E，所以E=5；自环计两次。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q34",
+    "level": 5,
+    "topic": "DS42",
+    "prompt": "边A-B=7,A-C=1,C-B=1,B-D=1，A到D的最小总权重？",
+    "answers": [
+      "3"
+    ],
+    "explanation": "A-C-B-D权重1+1+1=3；BFS只保证边数最少。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q35",
+    "level": 5,
+    "topic": "DS42",
+    "prompt": "Dijkstra标准贪心正确性要求边权？ A 任意 B 非负 C 全负 D 必须相同",
+    "answers": [
+      "B"
+    ],
+    "explanation": "非负保证已取最小距离不会被经过未确定点的更长路径改善。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q36",
+    "level": 5,
+    "topic": "DS47",
+    "prompt": "拓扑排序处理的顶点数小于总顶点数说明？ A 必有有向环 B 必不连通 C 必是树 D 图为空",
+    "answers": [
+      "A"
+    ],
+    "explanation": "尚未处理点入度都大于0，追溯前驱必重复形成环。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q37",
+    "level": 5,
+    "topic": "DS48",
+    "prompt": "AOE边0→1=2,0→2=3,1→3=4,2→3=1，工期是多少？",
+    "answers": [
+      "6"
+    ],
+    "explanation": "到汇点最长路径max(2+4,3+1)=6；关键路径0→1→3。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q38",
+    "level": 5,
+    "topic": "DS45",
+    "prompt": "含6个顶点、2个连通分量的无向图，生成森林边数？",
+    "answers": [
+      "4"
+    ],
+    "explanation": "每个分量树边数vi-1，总V-c=6-2=4。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q39",
+    "level": 5,
+    "topic": "DS43",
+    "prompt": "Floyd以k为最外层循环的意义？ A 中间点限制逐步扩大 B 下标好看 C 只访问邻边 D 自动避免负环",
+    "answers": [
+      "A"
+    ],
+    "explanation": "第k阶段允许前k个点作中间点，形成动态规划状态递推。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q40",
+    "level": 5,
+    "topic": "DS46",
+    "prompt": "Kruskal中快速判断加边是否成环的结构？ A Trie B 并查集 C 循环队列 D KMP",
+    "answers": [
+      "B"
+    ],
+    "explanation": "两端已在同集合则加边成环，否则union两个分量。",
+    "review": "docs/09-graphs.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q41",
+    "level": 6,
+    "topic": "DS55",
+    "prompt": "下列稳定排序是哪一种？ A 简单选择 B 通常原地快排 C 归并 D 希尔",
+    "answers": [
+      "C"
+    ],
+    "explanation": "相等时先取左半区元素的归并排序保持相等键原顺序。",
+    "review": "docs/10-sorting.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q42",
+    "level": 6,
+    "topic": "DS54",
+    "prompt": "对n个元素自底向上建二叉堆的时间？ A O(n) B O(n log n) C O(n²) D O(log n)",
+    "answers": [
+      "A"
+    ],
+    "explanation": "大量结点接近叶子，求和n/2^(h+1)·h为O(n)。本项目MinHeap逐次push建堆为O(n log n)。",
+    "review": "docs/10-sorting.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q43",
+    "level": 6,
+    "topic": "DS52",
+    "prompt": "快速排序每次划分为0和n-1，最坏时间？ A O(n) B O(n log n) C O(n²) D O(log n)",
+    "answers": [
+      "C"
+    ],
+    "explanation": "比较次数(n-1)+(n-2)+...+1为Θ(n²)。",
+    "review": "docs/10-sorting.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q44",
+    "level": 6,
+    "topic": "DS56",
+    "prompt": "LSD基数排序要保证每轮桶收集的哪种性质？ A 稳定 B 随机 C 逆序 D 全部交换",
+    "answers": [
+      "A"
+    ],
+    "explanation": "稳定性保留此前低位排序形成的相对顺序。",
+    "review": "docs/10-sorting.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q45",
+    "level": 6,
+    "topic": "DS57",
+    "prompt": "100页文件，内存可容10页，初始内部排序生成几段有序归并段？",
+    "answers": [
+      "10"
+    ],
+    "explanation": "按固定10页一段，ceil(100/10)=10；置换选择段长是另一模型。",
+    "review": "docs/10-sorting.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q46",
+    "level": 6,
+    "topic": "DS62",
+    "prompt": "若两份快照均校验失败，系统应？ A 静默初始化空库 B 报错并保留损坏证据 C 随机恢复 D 返回空结果",
+    "answers": [
+      "B"
+    ],
+    "explanation": "不能把损坏误判成没有文档；需用户从外部备份或源文档恢复。",
+    "review": "docs/11-persistence.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q47",
+    "level": 6,
+    "topic": "DS64",
+    "prompt": "正文更新后旧词仍被搜出，最可能遗漏？ A 删除旧倒排条目 B 新建标题 C 输出JSON D 重新排序文件名",
+    "answers": [
+      "A"
+    ],
+    "explanation": "更新是先撤销旧索引再加入新索引，所有派生结构须保持一致。",
+    "review": "docs/12-integration.md",
+    "points": 1,
+    "origin": "original"
+  },
+  {
+    "id": "Q48",
+    "level": 6,
+    "topic": "DS66",
+    "prompt": "评估检索正确性时，下列何者单独不足？ A 只看命令退出0 B 比对预期文档ID C 检查删除后旧词 D 重启重查",
+    "answers": [
+      "A"
+    ],
+    "explanation": "退出0只代表执行完成；必须检验结果与状态不变量。",
+    "review": "docs/13-exam.md",
+    "points": 1,
+    "origin": "original"
+  }
+]

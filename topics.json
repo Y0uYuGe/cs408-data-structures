@@ -1,0 +1,1160 @@
+{
+  "schema": 1,
+  "scope": "408通行数据结构核心范围；未来年度官方大纲待逐项核对",
+  "topics": [
+    {
+      "id": "DS01",
+      "title": "环境与跨进程命令",
+      "level": 1,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/__main__.py",
+          "symbol": "main"
+        }
+      ],
+      "docs": [
+        "docs/01-environment.md"
+      ],
+      "tests": [
+        "tests/test_cli.py::CLITests.test_cross_process_add_search_update_delete"
+      ],
+      "notes": "所有命令由真实子进程执行"
+    },
+    {
+      "id": "DS02",
+      "title": "C类型、数组、表达式与边界",
+      "level": 1,
+      "status": "theory",
+      "code": [
+        {
+          "path": "c/basics.c",
+          "symbol": "main"
+        }
+      ],
+      "docs": [
+        "docs/02-c-foundations.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "C/C++对照含断言，本机未发现编译器；Python不验证C内存语义"
+    },
+    {
+      "id": "DS03",
+      "title": "C指针、结构体、动态分配和生命周期",
+      "level": 1,
+      "status": "theory",
+      "code": [
+        {
+          "path": "c/basics.c",
+          "symbol": "erase"
+        }
+      ],
+      "docs": [
+        "docs/02-c-foundations.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "有C完整示例及纸面推演；本机未编译，不标系统实现"
+    },
+    {
+      "id": "DS04",
+      "title": "ADT、逻辑结构与物理存储",
+      "level": 1,
+      "status": "theory",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "Stack"
+        }
+      ],
+      "docs": [
+        "docs/03-complexity.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "概念对比；程序运行不能证明抽象概念掌握"
+    },
+    {
+      "id": "DS05",
+      "title": "渐进时间、空间和均摊分析",
+      "level": 1,
+      "status": "theory",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "DynamicArray.append"
+        }
+      ],
+      "docs": [
+        "docs/03-complexity.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "推导模型与题库，不将计时当复杂度证明"
+    },
+    {
+      "id": "DS06",
+      "title": "递归与调用栈空间",
+      "level": 1,
+      "status": "theory",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "AVLTree.put"
+        }
+      ],
+      "docs": [
+        "docs/03-complexity.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "递归存在实现中，复杂度证明仍是理论训练"
+    },
+    {
+      "id": "DS07",
+      "title": "动态顺序表的增长与插删",
+      "level": 2,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "DynamicArray"
+        }
+      ],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_dynamic_array_growth_insert_delete"
+      ],
+      "notes": "词元、栈、堆、默认倒排表实际使用"
+    },
+    {
+      "id": "DS08",
+      "title": "单链表的头尾与插删",
+      "level": 2,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "LinkedList"
+        }
+      ],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_linked_list_head_tail_singleton"
+      ],
+      "notes": "散列桶、队列与可选倒排表实际使用"
+    },
+    {
+      "id": "DS09",
+      "title": "双链表",
+      "level": 2,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅链接操作比较，无双链表实现"
+    },
+    {
+      "id": "DS10",
+      "title": "循环链表",
+      "level": 2,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅遍历终止和边界推演"
+    },
+    {
+      "id": "DS11",
+      "title": "静态链表与游标",
+      "level": 2,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅数组游标和空闲链原理"
+    },
+    {
+      "id": "DS12",
+      "title": "稀疏矩阵与快速转置",
+      "level": 2,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "三元组、计数起始位置推演，无矩阵模块"
+    },
+    {
+      "id": "DS13",
+      "title": "广义表的长度深度与head/tail",
+      "level": 2,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅定义和例题，无广义表ADT"
+    },
+    {
+      "id": "DS14",
+      "title": "栈与LIFO",
+      "level": 2,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "Stack"
+        }
+      ],
+      "docs": [
+        "docs/05-stack-queue.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_stack_lifo_and_queue_fifo"
+      ],
+      "notes": "解析、后缀求值、DFS、Trie枚举使用"
+    },
+    {
+      "id": "DS15",
+      "title": "链式队列与FIFO",
+      "level": 2,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "Queue"
+        }
+      ],
+      "docs": [
+        "docs/05-stack-queue.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_stack_lifo_and_queue_fifo"
+      ],
+      "notes": "BFS、拓扑排序、基数桶使用"
+    },
+    {
+      "id": "DS16",
+      "title": "循环数组队列与满空条件",
+      "level": 2,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/05-stack-queue.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "仅公式和纸面推演，不冒充链式队列实现"
+    },
+    {
+      "id": "DS17",
+      "title": "表达式优先级、中缀转后缀与求值",
+      "level": 2,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/query.py",
+          "symbol": "parse"
+        }
+      ],
+      "docs": [
+        "docs/05-stack-queue.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_query_precedence_and_implicit_and"
+      ],
+      "notes": "真实布尔查询语法，NOT右结合，隐式AND"
+    },
+    {
+      "id": "DS18",
+      "title": "字符串表示、Unicode与字节",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/engine.py",
+          "symbol": "tokenize"
+        }
+      ],
+      "docs": [
+        "docs/06-strings.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_tokenize_cjk_latin_deterministic"
+      ],
+      "notes": "正文长度按字符，归档按UTF-8字节"
+    },
+    {
+      "id": "DS19",
+      "title": "朴素字符串匹配与复杂度",
+      "level": 3,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/06-strings.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "用于对比KMP，无单独朴素匹配函数"
+    },
+    {
+      "id": "DS20",
+      "title": "KMP前缀表与模式匹配",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "kmp_find"
+        }
+      ],
+      "docs": [
+        "docs/06-strings.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_kmp_table_overlap_empty_unicode"
+      ],
+      "notes": "双引号短语真实调用KMP"
+    },
+    {
+      "id": "DS21",
+      "title": "Trie前缀树与剪枝",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "Trie"
+        }
+      ],
+      "docs": [
+        "docs/06-strings.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_trie_prefix_removal_shared_path"
+      ],
+      "notes": "suggest与删除唯一词真实调用"
+    },
+    {
+      "id": "DS22",
+      "title": "二叉树计数、度数和高度",
+      "level": 3,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "空指针n+1、n0=n2+1、统一高度定义"
+    },
+    {
+      "id": "DS23",
+      "title": "先中后层序遍历与重建",
+      "level": 3,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "手推和唯一性条件，无通用重建接口"
+    },
+    {
+      "id": "DS24",
+      "title": "完全二叉树数组表示与优先队列",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "MinHeap"
+        }
+      ],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_heap_order_and_empty"
+      ],
+      "notes": "排名、Dijkstra、Prim、Huffman共享二叉堆"
+    },
+    {
+      "id": "DS25",
+      "title": "树森林与左孩子右兄弟",
+      "level": 3,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅转换规则和图示文字推演"
+    },
+    {
+      "id": "DS26",
+      "title": "线索二叉树",
+      "level": 3,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅前驱后继与tag含义，无线索化实现"
+    },
+    {
+      "id": "DS27",
+      "title": "二叉搜索树键序与后继删除",
+      "level": 4,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "AVLTree.delete"
+        }
+      ],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_avl_delete_and_random_invariants"
+      ],
+      "notes": "由AVL承载BST完整键序及后继替代"
+    },
+    {
+      "id": "DS28",
+      "title": "AVL四旋转、插入与删除平衡",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "AVLTree"
+        }
+      ],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_avl_all_rotations"
+      ],
+      "notes": "长度索引实际调用put/delete/range"
+    },
+    {
+      "id": "DS29",
+      "title": "Huffman编码树、WPL与位打包",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "huffman_encode"
+        }
+      ],
+      "docs": [
+        "docs/07-trees.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_huffman_roundtrip_empty_single_all_bytes"
+      ],
+      "notes": "压缩导入导出真实使用，不保证小文件变小"
+    },
+    {
+      "id": "DS30",
+      "title": "顺序查找",
+      "level": 4,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "HashMap.get"
+        }
+      ],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_hash_collisions_rehash_update_none_delete"
+      ],
+      "notes": "桶内链式线性扫描实际使用，无独立顺序查找子命令"
+    },
+    {
+      "id": "DS31",
+      "title": "折半查找与lower_bound",
+      "level": 4,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "binary_search"
+        }
+      ],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_binary_lower_bound"
+      ],
+      "notes": "顺序倒排插删定位、show --lookup binary"
+    },
+    {
+      "id": "DS32",
+      "title": "平均查找长度ASL",
+      "level": 4,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "等概率/一般概率公式和题目，无统计性能宣称"
+    },
+    {
+      "id": "DS33",
+      "title": "拉链散列、装填因子与rehash",
+      "level": 4,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "HashMap"
+        }
+      ],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_hash_collisions_rehash_update_none_delete"
+      ],
+      "notes": "文档表、词频表、倒排词典和Trie孩子使用"
+    },
+    {
+      "id": "DS34",
+      "title": "开放定址、线性探测与墓碑",
+      "level": 4,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "仅碰撞策略与删除断链原因"
+    },
+    {
+      "id": "DS35",
+      "title": "B树多路查找与分裂",
+      "level": 4,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅小树分裂推演，无完整插删或磁盘页实现"
+    },
+    {
+      "id": "DS36",
+      "title": "B+树叶层链接与范围扫描",
+      "level": 4,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/08-search.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "范围索引实际为AVL，不是B+树"
+    },
+    {
+      "id": "DS37",
+      "title": "图的度、连通与V/E计数",
+      "level": 5,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "图数学模型及连通分量边数公式"
+    },
+    {
+      "id": "DS38",
+      "title": "邻接表与加权有向/无向图",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.add"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_graph_on_real_document_relationships"
+      ],
+      "notes": "共享词无向图、引用有向图，底层邻接字典"
+    },
+    {
+      "id": "DS39",
+      "title": "邻接矩阵的空间与访问代价",
+      "level": 5,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅表示方式比较；Floyd距离矩阵不是存储ADT"
+    },
+    {
+      "id": "DS40",
+      "title": "DFS深度优先遍历",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.dfs"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_bfs_dijkstra_dfs_unreachable"
+      ],
+      "notes": "graph dfs --source 使用真实文档图"
+    },
+    {
+      "id": "DS41",
+      "title": "BFS广度优先与无权最短路径",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.path"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_bfs_dijkstra_dfs_unreachable"
+      ],
+      "notes": "path --algorithm bfs，返回边数距离"
+    },
+    {
+      "id": "DS42",
+      "title": "Dijkstra非负权最短路径",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.path"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_bfs_dijkstra_dfs_unreachable"
+      ],
+      "notes": "堆、松弛、过期条目跳过；拒绝负权"
+    },
+    {
+      "id": "DS43",
+      "title": "Floyd全源最短路径",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.floyd"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_floyd_matches_dijkstra"
+      ],
+      "notes": "graph floyd，逐对验证与Dijkstra一致"
+    },
+    {
+      "id": "DS44",
+      "title": "Prim最小生成森林",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.spanning_forest"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_prim_kruskal_disconnected_forest"
+      ],
+      "notes": "无向对称校验与多分量外层循环"
+    },
+    {
+      "id": "DS45",
+      "title": "Kruskal最小生成森林",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.spanning_forest"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_prim_kruskal_disconnected_forest"
+      ],
+      "notes": "边权排序与并查集筛边"
+    },
+    {
+      "id": "DS46",
+      "title": "并查集、按秩合并和路径压缩",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/structures.py",
+          "symbol": "DisjointSet"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_structures.py::StructureTests.test_disjoint_set_path_compression"
+      ],
+      "notes": "Kruskal实际调用"
+    },
+    {
+      "id": "DS47",
+      "title": "DAG拓扑排序与环检测",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.topological"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_topological_critical_path_cycle"
+      ],
+      "notes": "引用图真实可用，循环引用会报错"
+    },
+    {
+      "id": "DS48",
+      "title": "AOE关键路径",
+      "level": 5,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "Graph.critical_path"
+        }
+      ],
+      "docs": [
+        "docs/09-graphs.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_topological_critical_path_cycle"
+      ],
+      "notes": "最早/最迟事件与关键边；工期语义需由应用建模"
+    },
+    {
+      "id": "DS49",
+      "title": "直接插入排序",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_all_eight_sorts_and_boundary_inputs"
+      ],
+      "notes": "search --sort insertion真实排名"
+    },
+    {
+      "id": "DS50",
+      "title": "希尔排序",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_all_eight_sorts_and_boundary_inputs"
+      ],
+      "notes": "search --sort shell；gap折半"
+    },
+    {
+      "id": "DS51",
+      "title": "冒泡排序",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_all_eight_sorts_and_boundary_inputs"
+      ],
+      "notes": "search --sort bubble；含早停"
+    },
+    {
+      "id": "DS52",
+      "title": "快速排序",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_all_eight_sorts_and_boundary_inputs"
+      ],
+      "notes": "search --sort quick；三路划分与显式栈"
+    },
+    {
+      "id": "DS53",
+      "title": "简单选择排序",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_all_eight_sorts_and_boundary_inputs"
+      ],
+      "notes": "search --sort selection"
+    },
+    {
+      "id": "DS54",
+      "title": "堆排序与建堆代价",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_eight_sorts_actual_search"
+      ],
+      "notes": "Python用额外最小堆；C++原地最大堆对照未本机编译"
+    },
+    {
+      "id": "DS55",
+      "title": "归并排序与稳定性",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_stable_sorts_preserve_equal_keys"
+      ],
+      "notes": "自底向上宽度倍增；等键先左"
+    },
+    {
+      "id": "DS56",
+      "title": "LSD基数排序",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/algorithms.py",
+          "symbol": "sort_values"
+        }
+      ],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_stable_sorts_preserve_equal_keys"
+      ],
+      "notes": "Queue稳定桶、负数偏移、整数排名键"
+    },
+    {
+      "id": "DS57",
+      "title": "外部排序与多路归并I/O",
+      "level": 6,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "只有页模型和轮数推演，当前索引全在内存"
+    },
+    {
+      "id": "DS58",
+      "title": "置换选择生成归并段",
+      "level": 6,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅冻结与段长原理"
+    },
+    {
+      "id": "DS59",
+      "title": "败者树与k路归并",
+      "level": 6,
+      "status": "theory",
+      "code": [],
+      "docs": [
+        "docs/10-sorting.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_topic_map_paths_symbols_and_tests"
+      ],
+      "notes": "仅更新比较路径，无完整败者树"
+    },
+    {
+      "id": "DS60",
+      "title": "倒排表集合交并差与补集",
+      "level": 2,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/query.py",
+          "symbol": "combine"
+        }
+      ],
+      "docs": [
+        "docs/04-linear.md"
+      ],
+      "tests": [
+        "tests/test_algorithms.py::AlgorithmTests.test_posting_merge_boolean"
+      ],
+      "notes": "布尔检索真实执行有序表合并"
+    },
+    {
+      "id": "DS61",
+      "title": "原子快照与跨进程持久化",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/storage.py",
+          "symbol": "atomic_write"
+        }
+      ],
+      "docs": [
+        "docs/11-persistence.md"
+      ],
+      "tests": [
+        "tests/test_cli.py::CLITests.test_cross_process_add_search_update_delete"
+      ],
+      "notes": "全量双快照，非WAL事务"
+    },
+    {
+      "id": "DS62",
+      "title": "校验、损坏恢复与repair",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/storage.py",
+          "symbol": "load"
+        }
+      ],
+      "docs": [
+        "docs/11-persistence.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_snapshot_corruption_recovery_and_repair"
+      ],
+      "notes": "优先最高有效revision；双坏报错"
+    },
+    {
+      "id": "DS63",
+      "title": "本机进程锁与旧锁检测",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/storage.py",
+          "symbol": "database_lock"
+        }
+      ],
+      "docs": [
+        "docs/11-persistence.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_lock_exclusion_and_stale_owner_recovery"
+      ],
+      "notes": "CLI整次操作排他；网络盘/多机/PID复用未解决"
+    },
+    {
+      "id": "DS64",
+      "title": "系统索引一致性与增删改",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/engine.py",
+          "symbol": "Engine.check"
+        }
+      ],
+      "docs": [
+        "docs/12-integration.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_update_delete_remove_every_index_restart"
+      ],
+      "notes": "索引撤销、Trie剪枝、AVL删除与引用清理"
+    },
+    {
+      "id": "DS65",
+      "title": "中英确定性切分与词频排名",
+      "level": 3,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/engine.py",
+          "symbol": "tokenize"
+        }
+      ],
+      "docs": [
+        "docs/06-strings.md"
+      ],
+      "tests": [
+        "tests/test_engine.py::EngineTests.test_search_boolean_phrase_ranking"
+      ],
+      "notes": "非词典分词与BM25，标题正文共同计数"
+    },
+    {
+      "id": "DS66",
+      "title": "原创题诊断与分层复习",
+      "level": 6,
+      "status": "implemented",
+      "code": [
+        {
+          "path": "atlas_search/assessment.py",
+          "symbol": "assess"
+        }
+      ],
+      "docs": [
+        "docs/13-exam.md"
+      ],
+      "tests": [
+        "tests/test_course.py::CourseTests.test_original_question_bank_and_diagnostic"
+      ],
+      "notes": "48题精确答案检查，不作正式考试成绩预测"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas-search-408"
+version = "1.0.0"
+description = "A Chinese 408 data structures course built around a persistent local search engine"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+atlas-search = "atlas_search.__main__:main"
+
+[tool.setuptools.package-data]
+atlas_search = ["data/*.json"]
+
+[tool.setuptools.packages.find]
+include = ["atlas_search*"]

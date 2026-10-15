@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.atlas/
+.venv/
+*.egg-info/
+build/
+dist/
+*.atlas.json
+answers.local.json
+*.exe
+*.o
